@@ -1,6 +1,6 @@
 class Api::V1::DashboardController < ApplicationController
     def index
-        #load_recent_heard
+        load_recent_heard
         load_recommendations
     end
 
@@ -8,8 +8,7 @@ class Api::V1::DashboardController < ApplicationController
 
     def load_recent_heard
         # recupero os albuns recentes ouvidos pelo usuario logado
-        @recent_albums = current_user.recently_heards.order('created_at DESC').limit(4).map(&:album)
-        render json: @recent_albums
+        @recent_albums = current_api_user.recently_heards.order('created_at DESC').limit(4).map(&:album)
     end
 
     def load_recommendations
@@ -18,8 +17,7 @@ class Api::V1::DashboardController < ApplicationController
 
         if heard_categories.present?
             # recomendo para o usuario albums que estejam nas categorias dos albuns escutados recentemente            
-            @recommended_albums = Album.joins(:category, :songs).where(category: heard_categories).order('songs.played_count')
-                                                             .select('distinct albums.*').limit(12)
+            @recommended_albums = Album.joins(:category, :songs).where(category: heard_categories).limit(12)
         else
             # Recomendo para o usuario albums aleatorios
             @recommended_albums = Album.sample.limit(12)

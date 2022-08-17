@@ -7,6 +7,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
+  before_validation :set_uid
+
+  private
+  def set_uid
+    self[:uid] = self[:email] if self[:uid].blank? && self[:email].present?
+  end
+
   has_many :favorites
   has_many :recently_heards
 end
