@@ -10,7 +10,9 @@ gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.7'
+
+gem 'jbuilder', '~> 2.7'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -43,4 +45,5 @@ gem "devise_token_auth", "~> 1.2"
 
 gem "letter_opener", "~> 1.8"
 
-gem "active_model_serializers", "~> 0.10.13"
+gem 'rack-cors'
+

@@ -20,12 +20,11 @@ class Api::V1::DashboardController < ApplicationController
 
         if heard_categories.present?
             # recomendo para o usuario albums que estejam nas categorias dos albuns escutados recentemente            
-            @recommended_albums = Album.joins(:category, :songs).where(category: heard_categories).limit(12)
+            @recommended_albums = Album.joins(:category, :songs).where(category: heard_categories).order('songs.played_count')
+                                                             .select("").limit(12)
         else
             # Recomendo para o usuario albums aleatorios
-            @recommended_albums = Album.sample.limit(12)
+            @recommended_albums = Album.all.sample(12)
         end
-
-        render json: @recommended_albums
     end
 end

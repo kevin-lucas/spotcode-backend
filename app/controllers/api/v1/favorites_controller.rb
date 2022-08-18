@@ -5,8 +5,6 @@ class Api::V1::FavoritesController < ApplicationController
         @favorites_albums = current_api_user.favorites.where(favoritable_type: "Album").map(&:favoritable)
         @favorites_songs = current_api_user.favorites.where(favoritable_type: "Song").map(&:favoritable)
         @favorites_artists = current_api_user.favorites.where(favoritable_type: "Artist").map(&:favoritable)
-
-        render json: @favorites_albums
     end
 
     def create

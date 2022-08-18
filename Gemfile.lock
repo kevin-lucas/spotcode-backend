@@ -39,11 +39,6 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    active_model_serializers (0.10.13)
-      actionpack (>= 4.1, < 7.1)
-      activemodel (>= 4.1, < 7.1)
-      case_transform (>= 0.2)
-      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (6.1.6.1)
       activesupport (= 6.1.6.1)
       globalid (>= 0.3.6)
@@ -72,8 +67,6 @@ GEM
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
-    case_transform (0.2)
-      activesupport
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     devise (4.8.1)
@@ -92,7 +85,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    jsonapi-renderer (0.2.2)
+    jbuilder (2.11.5)
+      actionview (>= 5.0.0)
+      activesupport (>= 5.0.0)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.8.1)
@@ -120,6 +115,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.4)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (6.1.6.1)
@@ -177,14 +174,15 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  active_model_serializers (~> 0.10.13)
   bootsnap (>= 1.4.4)
   byebug
   devise_token_auth (~> 1.2)
+  jbuilder (~> 2.7)
   letter_opener (~> 1.8)
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
+  rack-cors
   rails (~> 6.1.6, >= 6.1.6.1)
   spring
   tzinfo-data
