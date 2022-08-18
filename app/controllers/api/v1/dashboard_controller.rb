@@ -1,4 +1,7 @@
 class Api::V1::DashboardController < ApplicationController
+
+    before_action :authenticate_api_user!, expect: [:index]
+
     def index
         load_recent_heard
         load_recommendations
