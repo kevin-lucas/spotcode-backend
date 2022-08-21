@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  root 'home#index'
-    
   concern :favoritable do |options|
     shallow do
       post '/favorite', { to: "favorites#create", on: :member }.merge(options)
@@ -13,6 +11,9 @@ Rails.application.routes.draw do
     mount_devise_token_auth_for 'User', at: 'auth'  
     
     namespace :v1 do
+
+      root 'dashboard#index'
+
       resources :dashboard, only: :index
       resources :categories, only: [:index, :show]
       resources :search, only: :index
