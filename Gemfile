@@ -47,3 +47,6 @@ gem "letter_opener", "~> 1.8"
 
 gem 'rack-cors'
 
+gem 'aws-sdk-s3'
+
+gem "image_processing", ">= 1.2"

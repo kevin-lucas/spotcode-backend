@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
-  
-  concern :favoritable do |options|
-    shallow do
-      post '/favorite', { to: "favorites#create", on: :member }.merge(options)
-      delete '/favorite',  { to: "favorites#destroy", on: :member }.merge(options)
-    end
-  end 
 
   namespace :api, defaults: { format: :json } do
    
-    namespace :v1 do
-      mount_devise_token_auth_for 'User', at: 'auth'  
+    mount_devise_token_auth_for 'User', at: 'auth'  
 
+    namespace :v1 do
+     
       root 'dashboard#index'
+
+      concern :favoritable do |options|
+        shallow do
+          post '/favorite', { to: "favorites#create", on: :member }.merge(options)
+          delete '/favorite',  { to: "favorites#destroy", on: :member }.merge(options)
+        end
+      end 
 
       resources :dashboard, only: :index
       resources :categories, only: [:index, :show]
