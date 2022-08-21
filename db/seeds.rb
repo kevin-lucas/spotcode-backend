@@ -211,7 +211,7 @@ escape.file.attach(io: File.open("#{tmp_dir}/seed_files/musics/escape.mp3"), fil
 # USERS
 #========================
 
-freddie_mercury = User.create(name: "Freddie Mercury", email: "freddie@mercury.com", password: "123456", password_confirmation: "123456")
+freddie_mercury = User.create(name: "Freddie Mercury", email: "freddie@mercury.com", password: "dev@123456", password_confirmation: "dev@123456")
 freddie_mercury.favorites.create(favoritable: trinity)
 freddie_mercury.favorites.create(favoritable: paw_paw_tree)
 freddie_mercury.favorites.create(favoritable: everything_zen)
@@ -221,16 +221,16 @@ freddie_mercury.recently_heards.create(album: trinity)
 freddie_mercury.recently_heards.create(album: gubernator)
 freddie_mercury.recently_heards.create(album: the_great_bear)
 
-diana_ross = User.create(name: "Diana Ross", email: "diana@ross.com", password: "123456", password_confirmation: "123456")
+diana_ross = User.create(name: "Diana Ross", email: "diana@ross.com", password: "dev@123456", password_confirmation: "dev@123456")
 diana_ross.favorites.create(favoritable: trinity)
 diana_ross.recently_heards.create(album: the_great_bear)
 diana_ross.recently_heards.create(album: paw_paw_tree)
 diana_ross.recently_heards.create(album: aldebaran)
 
-michael_jackson = User.create(name: "Michael Jackson", email: "michael@jackson.com", password: "123456", password_confirmation: "123456")
+michael_jackson = User.create(name: "Michael Jackson", email: "michael@jackson.com", password: "dev@123456", password_confirmation: "dev@123456")
 michael_jackson.favorites.create(favoritable: trinity)
 michael_jackson.favorites.create(favoritable: paw_paw_tree)
 
-celine_dion = User.create(name: "Celine Dion", email: "celine@dion.com", password: "123456", password_confirmation: "123456")
+celine_dion = User.create(name: "Celine Dion", email: "celine@dion.com", password: "dev@123456", password_confirmation: "dev@123456")
 celine_dion.favorites.create(favoritable: trinity)
 celine_dion.favorites.create(favoritable: everything_zen) 
