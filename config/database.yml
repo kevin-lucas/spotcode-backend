@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: db_spotcode__production
+  database: db_spotcode_production
   username: root
   password: <%= ENV['BACKEND_DATABASE_PASSWORD'] %>
