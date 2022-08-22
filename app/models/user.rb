@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
   before_validation :set_uid
 
+  def is_favorite? kind, id
+    self.favorites.where(favoritable_type: kind, favoritable_id: id).present?
+  end
+
   private
   def set_uid
     self[:uid] = self[:email] if self[:uid].blank? && self[:email].present?
