@@ -23,5 +23,4 @@
 !/storage/.keep
 .byebug_history
 
-# Ignore master key for decrypting credentials and more.
-
+!/tmp/seed_files
